@@ -1,0 +1,25 @@
+# IntelliJ
+.idea/
+*.iml
+*.iws
+backend/.idea/
+backend/out/
+
+# VSCode
+.vscode/
+!frontend/.vscode/
+
+# Backend (Kotlin + Gradle)
+backend/build/
+backend/.gradle/
+backend/bin/
+
+# Frontend (React)
+frontend/node_modules/
+frontend/build/
+frontend/dist/
+frontend/.env.local
+
+# 공통
+.DS_Store
+*.log
