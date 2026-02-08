@@ -13,6 +13,7 @@ backend/out/
 backend/build/
 backend/.gradle/
 backend/bin/
+backend/src/main/resources/application.yml
 
 # Frontend (React)
 frontend/node_modules/
