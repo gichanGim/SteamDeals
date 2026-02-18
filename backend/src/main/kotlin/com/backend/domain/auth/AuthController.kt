@@ -1,5 +1,5 @@
-package com.example.backend.domain.auth
+package com.backend.domain.auth
 
 class AuthController {
-
+    var isTrue = false;
 }

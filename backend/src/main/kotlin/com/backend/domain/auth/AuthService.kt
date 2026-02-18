@@ -1,4 +1,4 @@
-package com.example.backend.domain.auth
+package com.backend.domain.auth
 
 class AuthService {
 }

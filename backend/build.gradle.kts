@@ -1,21 +1,20 @@
 plugins {
-	id 'org.jetbrains.kotlin.jvm' version '2.2.21'
-	id 'org.jetbrains.kotlin.plugin.spring' version '2.2.21'
-	id 'org.springframework.boot' version '4.0.2'
-	id 'io.spring.dependency-management' version '1.1.7'
+    kotlin("jvm") version "2.2.21"
+    kotlin("plugin.spring") version "2.2.21"
+    id("org.springframework.boot") version "4.0.2"
+    id("io.spring.dependency-management") version "1.1.7"
 
     // JPA
-    kotlin("plugin.spring") version "1.9.22"
-    kotlin("plugin.jpa") version "1.9.22"
+    kotlin("plugin.jpa") version "2.2.21"
 }
 
-group = 'com.example'
-version = '0.0.1-SNAPSHOT'
-description = 'backend'
+group = "com"
+version = "0.0.1-SNAPSHOT"
+description = "backend"
 
 java {
 	toolchain {
-		languageVersion = JavaLanguageVersion.of(17)
+		languageVersion = JavaLanguageVersion.of(21)
 	}
 }
 
@@ -24,19 +23,35 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter'
-	implementation 'org.jetbrains.kotlin:kotlin-reflect'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation 'org.jetbrains.kotlin:kotlin-test-junit5'
-	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	implementation ("org.springframework.boot:spring-boot-starter")
+
+
+	testImplementation ("org.jetbrains.kotlin:kotlin-test-junit5")
+	testRuntimeOnly ("org.junit.platform:junit-platform-launcher")
+
+    implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-validation")
+    implementation ("org.jetbrains.kotlin:kotlin-reflect")
+    implementation("org.springframework.boot:spring-boot-starter-actuator")
+    testImplementation ("org.springframework.boot:spring-boot-starter-test")
+    // Spring Security
+    implementation("org.springframework.boot:spring-boot-starter-security")
+    // JPA
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    // MYSQL
+    runtimeOnly("com.mysql:mysql-connector-j")
 }
 
 kotlin {
-	compilerOptions {
-		freeCompilerArgs.addAll '-Xjsr305=strict', '-Xannotation-default-target=param-property'
-	}
+    compilerOptions {
+        freeCompilerArgs.addAll("-Xjsr305=strict", "-Xannotation-default-target=param-property")
+    }
 }
 
-tasks.named('test') {
-	useJUnitPlatform()
+tasks.withType<Test> {
+    useJUnitPlatform()
+    testLogging {
+        showStandardStreams = true
+        events("passed", "skipped", "failed")
+    }
 }

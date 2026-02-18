@@ -1,4 +1,4 @@
-package com.example.backend.domain.game
+package com.backend.domain.game
 
 class GameController {
 }
