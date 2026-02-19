@@ -38,6 +38,8 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-security")
     // JPA
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    // WebClient
+    implementation("org.springframework.boot:spring-boot-starter-webflux")
     // MYSQL
     runtimeOnly("com.mysql:mysql-connector-j")
 }
