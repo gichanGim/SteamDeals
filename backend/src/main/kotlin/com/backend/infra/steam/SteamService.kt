@@ -1,6 +1,7 @@
 package com.backend.infra.steam
 
 import com.backend.config.ApiExecutor
+import com.backend.domain.game.GameRepository
 import com.backend.infra.steam.dto.response.SteamApp
 import com.backend.infra.steam.dto.response.SteamAppListResponse
 import org.springframework.beans.factory.annotation.Value
@@ -10,9 +11,12 @@ import org.springframework.stereotype.Service
 class SteamService(
     @Value("\${steam.api-key}")
     private val apiKey: String,
-    private val apiExecutor: ApiExecutor
+    private val apiExecutor: ApiExecutor,
+    private var gameRepository: GameRepository
 ) {
     fun updateSteamGames() {
+        var datasets = gameRepository.findAll();
+
         var lastAppid: Long? = 0L
         var haveMoreResults : Boolean = true
 

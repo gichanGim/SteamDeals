@@ -3,7 +3,7 @@ package com.backend.infra.steam.dto.response
 import com.fasterxml.jackson.annotation.JsonProperty
 
 data class SteamApp(
-    val appid: Int,
+    val appid: Long,
     val name: String,
     @JsonProperty("last_modified")
     val lastModified: Long,
