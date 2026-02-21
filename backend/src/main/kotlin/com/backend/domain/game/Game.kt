@@ -5,7 +5,8 @@ import jakarta.persistence.*
 @Table(name = "games")
 class Game(
     @Id @Column(name = "app_id") val appId: Long,
-    var name: String
+    var name: String,
+
 ) {
     companion object {
         fun create(appId: Long, name: String): Game {
