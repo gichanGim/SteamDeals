@@ -1,5 +1,8 @@
 package com.backend.domain.user
 
+import com.backend.domain.auth.OAuthInfo
+import com.backend.domain.game.Game
+import com.backend.infra.steam.dto.response.SteamApp
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.EnumType
@@ -16,8 +19,15 @@ class User(
     @Column(name = "user_id")
     var id: Long,
 
-    @Column(name = "login_method", nullable = false)
-    @Enumerated(EnumType.STRING)
-    var loginMethod: LoginMethod
+    @Column(nullable = false)
+    var provider: String,
+
+    @Column(name = "provider_id", nullable = false)
+    var providerId: String
 ) {
+    companion object {
+        fun create(provier: String, oAuthInfo: OAuthInfo): Game {
+            return User()
+        }
+    }
 }

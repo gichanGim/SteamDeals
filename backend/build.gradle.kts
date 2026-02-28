@@ -42,6 +42,10 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-webflux")
     // MYSQL
     runtimeOnly("com.mysql:mysql-connector-j")
+    // Redis
+    implementation("org.springframework.session:spring-session-data-redis")
+    // OAuth
+    implementation("org.springframework.boot:spring-boot-starter-oauth2-client")
 }
 
 kotlin {
