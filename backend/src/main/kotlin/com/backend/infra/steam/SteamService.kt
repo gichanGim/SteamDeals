@@ -15,7 +15,7 @@ class SteamService(
     private var gameRepository: GameRepository
 ) {
     fun updateSteamGames() {
-        var datasets = gameRepository.findAll();
+        val games = gameRepository.findAll().associateBy { it.appId };
 
         var lastAppid: Long? = 0L
         var haveMoreResults : Boolean = true

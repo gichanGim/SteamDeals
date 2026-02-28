@@ -6,9 +6,9 @@ data class SteamApp(
     val appid: Long,
     val name: String,
     @JsonProperty("last_modified")
-    val lastModified: Long,
+    val lastModified: Long = 0,
     @JsonProperty("price_change_number")
-    val priceChangeNumber: Long
+    val priceChangeNumber: Long = 0
 )
 
 data class SteamAppList(
